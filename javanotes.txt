@@ -1490,7 +1490,44 @@ public void test(){
     ---
 }
 
+->@BeforeEach annotation is used befor the method which you want to execute before each test case.
+->before executing each test case it will excecute the BeforeEach annotated  method
+code:
+@BeforeEach
+void beforeMethod(){
+    sop("execute befor each test case method");
+}
+->in junit 4 we simply use @Before annotation to implement this feature.
 
+->@AfterEach annotation method is used for that method which you want to excecute after each testcase method.
+->in junit 4 we just use @After.
+
+->@BeforeAll annotated methid is used for creating testmethod which you want to run only once.
+->in this the method is static only.
+->this method is called before execting all the test cases.
+->means executed before creating the instances of the test methods.
+
+->@AfterAll annotated methdod is called after all the test cases are executed .
+-> this annotated method is also executed only once.
+->this method should also be static.
+
+->the test object is created every time a test method is called.
+-> means for each test method an object is created and a constructor is called.
+->no of test methods = no of different object created.
+->by default for every method an instance of the class is created.
+
+->so to avoid this we use a separate annotation called TestInstance
+code Implementation:
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)  ->this is used to create the instance only once. as argument we pass an enum.
+class TestClass{
+    @Test
+    void testMethod(){
+
+    }
+}
+-> by default we use TestInstance(TestInstance.Lifecycle.PER_METHOD) ->for this for every test method an instance (Object ) is created.
+-> if the behavior is PER_CLASS no need to use static method for the @BeforAll and @AfterAll annotated method.  
 
 
 
