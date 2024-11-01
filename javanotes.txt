@@ -1,0 +1,1513 @@
+java is a strongly typed language
+java have JVM JRE and javac 
+java is platform independent language
+java have basic 4 primitive datatypes:
+1.integer
+2.float
+3.char -2bits
+4.boolean only true and false no use of (0,1)
+-> in integer we have long,short,byte,int
+->in float we have double and float
+->default value for decimal values is double 
+->to only work with float we have to declare the variable as 5.6f
+->int 4bits,short 2bits,long 8bits,byte 1bit.
+-> byte store values form -128 to 127 if more than that value is stored then it gives error
+-> syntax for using long is 4333l we and an l after the number.
+-> Boolean is declared using the keyword bool.
+-> hexa decimal numbers are declared using the keyword int but the variable is declared as 0x7E
+-> new feature of java is that if we have multiple zeros in the number then we can declare as 100_00_00_000_00 it will print as a normal number
+->char can also be treated as numbers as the characters have ascii values like a+1 gives as b  
+-> double example is 12e10 we can say it as 12xe the power 10
+->Math.random() ->this method gives a random value less than 1 and it gives a value of DOUBLE.
+
+
+->to just run the one line code we can use JSHELL to execute just the single line of code instead of using the classes and psvm method
+-> to cobinely compile and run the code we can use java filename.java no need of separate compile and run operation. version >=14
+
+TYPE CASTING and CONVERSION -----------------------------
+1.TYPE CASTING
+-> casting is converting higher level datatype to lower level data types
+->like int to byte or long to int or long to short etc
+->type casting can lead to some loss of data 
+-> EX: byte b=(byte) 128 in this case the number is out of range of byte hence the number is subtracted by the range of byte i.e 256 and then modulo of 257 is applied the result is negative
+2. TYPE CONVERSION --------------------------
+-> in this case lover level data types are converted to higher level datatypes
+-> in this case no data loss is present
+EX : byte b=21,int a = b; 
+
+-> and we can store two same low level datatype operation in a higher level datatype its called TYPE PROMOTION
+->TYPE PROMOTION is automatically done by the java machine 
+ex:int a = byte * byte
+
+operators: -------------------------
+ +,-,/,*,   {++a, a++,--a ,a--(increment and decrement operators)}  etc
+-> num +=2 is same as (num=num+2)
+-> likewise we can use other arithmetic operators.
+
+COMPARISON OPERATORS  ------------------
+{<,>,<=,>=,==,!=} returns a bolean value while usage
+ex:(boolean b=x>y)
+
+LOGICAL OPERATORS ------------------------
+{AND-&,OR-|,NOT-!}
+-> and and or are used to check both condition simultaneously and return a boolean value
+->short circuit is used by write the logical operations as double like &&,||
+-> in short circuit it reduces the time by skipping the second condition.
+-> in || if first condition is true it dont check the second condition
+-> in && if first condition is false it dont check for the second condition
+
+CONDITONAL STATEMENTS --------------------------
+->if,else if,else 
+syntax: if(conditon){ do something } else {do other thing }  -> if we have only on line in do something the no need to use curly braces if we have multiple lines then we have to use curly braces.
+TERNARY OPERATORS 
+-> used sometime in alternate to the if else statements
+-> we use question mark and colon ?:
+->syntax : (condition)? execute if condition is true : execute if condition is false
+->it takes less lines to write 
+
+SWITCH STATEMENTS ----------------------
+
+syntax:
+switch(number){
+case number:
+	execute something if matches;
+	break;
+case number:
+	execute something if matches;
+	break;
+...
+...
+...
+...
+default:
+	execute something if nothing matches in the cases;
+}
+
+LOOPS ----------------------------------
+
+->while loop
+syntax:
+while(condition){
+do something;
+counter;
+}
+
+-> do While loop
+syntax:
+do{
+do something;
+}while(condition);
+->it will first execute the statement and then check the condition .
+->with the do while loop we can execute the statement atleast once.
+
+->for loop
+syntax:
+
+
+->in JAVA every thing is an object and every object has some properties and usage.
+-> the JVM creates an object.
+-> every object is created by using a class
+-> using the classes the jvm creates the class file through which it gets the byte code and using ythe byte code the jvm creats the object of the particular class.
+
+Class-> a class is a blueprint which hold the methods and functions and variable which we can use in our code
+-> we can use the methods and variable of the class by creating the object of the class
+syntax for creating an object:
+Classname (refname)variable_name = new Classname;
+
+->the JDK have the JRE and the JRE have the JVM the jvm uses the class files in the JRE and creates the object of the class.
+
+METHODS: ----------------------------
+->method are the reusable piece of code which are used to perform a particular task.
+->metods can be parameterized and can also be non parameterized 
+->method overloading is the process of creating different function with same name but with different tasks 
+-> this process is called method overloading .
+-> we do this by providing  different types of parameters , different number of parameters .
+EX:1. public void funcname(int n1){}
+2.public void funcname(int n1,int 2){}
+3.publiv int funcname(int n1,int n2, int n3){} ETC.
+->but the method overloading dont depend on the return type .
+->method overloading completely depend on the parameter types and number of parameter in the method.
+->we cannot perform method overloading just by changing the return types we have to compulsory change the parameters also.
+
+->public method can be accessed by all and every other method and class.
+
+ARRAYS: --------------------------------
+->array is a collection of continuous data stored under a single reference variable.
+->an array can store data of only same datatype.
+->we can create array of int, char, string, etc.
+->arrays are mutable.
+Syntax:   datatype(int/char) array_name[] = new int[desired_size]; ->providing size is important if we dont know the values of the array at the time declaring.
+	  datatype(int/char) array_name[] ={1,2,3,...}; ->when we know the values.
+Types:1-D,2-D,3-D(matrix),multi dimensional array
+2-D array syntax:
+		datatype(int/char) array_name[][] = new int[no of rows][no of columns]
+->we have to use two loops for the continuous 3-D array retrieval (outer loop for rows and inner loop for columns).
+
+Enhanced for loop for an 3-D array:
+EX: 3-d array is nums then the loop will be 
+	for(int n[] : nums){ 
+        for(int m : n){
+	sop(m)
+		}
+         }
+
+JAGGED ARRAY ---------------------------------
+-> its defined as the 2-D array inn which the internal array is not defined and only the no of rows is declared
+EX: int[][] nums= new int[3][]
+	nums[0]=new int[3]
+	nums[1]=new int[4]
+	nums[2]=new int[5]
+	variable internal array size
+-> IN 2-D array (nums.length) returns gives no of rows and (nums[0-2].length) shows particular internal array length.
+
+3-D array syntax:
+int nums[][][] = new int[2][2][2];
+
+Drawbacks of array;
+->size of the array cannot be changed once declaring the array and size
+->the traversal of the array is linear one after the other.
+->only same type of data can be stored.
+
+->Exceptions are runtime errors.
+->Exceptions are not shown in compilation 
+
+CLASS OPERATIONS EXAMPLE: ----------------
+
+
+class student{
+String name;
+int rollno;
+int marks;
+}
+
+psvm{
+
+student s1=new student();
+s1.name='rizwan';
+s1.rollno=78;
+s1.marks=971;
+
+student s2=new student();
+s2.name='rizwan';
+s2.rollno=78;
+s2.marks=971;
+
+student s3=new student();
+s3.name='rizwan';
+s3.rollno=78;
+s3.marks=971;
+
+}
+
+creating an array of student:
+-> Student student[] = new student[3];
+-> student[0] = s1;
+-> student[1] = s2;
+-> student[2] = s3;
+
+Enhanced for loop:
+for(classname(Student) stud : student){
+sop(stud.name,rollno,age)
+}
+
+
+STRINGS: --------------------------------
+->immutable
+->can be created using String class.
+syntax:
+String s1=new String("rizwan"); OR  String s1="rizwan";
+->here the object (i.e s1 variable name) is stored in the stack memory and also the loaction of the string is stored in the stack memory
+->and the in the location in the heap memory actual data ('rizwan') is stored and the location is passed in the stack memory.
+Method for String operation:
+.charAt()
+.concat()
+->there is a String Constant Pool in the heap memory.
+->same String cannot be created more than once.
+->ex: s1="rizwan" s2="rizwan" here both s1 and s2 are pointing toward same string "rizwan" in the String constant pool
+->if a concatenation is done on a string then a new string is created and then the old string is eligible for garbage collection.
+-> to work on mutable strings we have two classes 1.String buffer  2.String builder
+
+String buffer syntax:  -------------------------
+StringBuffer sb = new StringBuffer("rizwan");
+method usage in String buffer:
+1. sb.append('something to add or write');
+2. sb.insert(index ,"string to be added after the index");
+3. sb.setLength(int) set the length of the StringBuffer
+4. sb.toString();
+5. sb.capacity();
+6.sb.encureCapacity();
+
+->stringbuffer is thread safe and stringbuilder is not thread safe.
+
+STATIC KEYWORD: ---------------------------------
+
+->static keyword is used to make a common value accessed by of the objects of a class.
+-> a static keyword can be directly called by the class itself.
+->all the object of a class have the same static keyword.
+->if we change the static keyword then that will effect all the objects of a class.
+->a static keyword can be used by the non static method.
+->this can save memory as each object have a common value of the static keyword.	
+
+EX: class Mobile{
+	int id;
+	static String name;
+}
+class Demo{
+	psvm(String args[]){
+		Mobile m1=new Mobile();
+		m1.id=101;
+		m1.name="apple"; // or
+		Mobile.name='smartphone';
+
+		Mobile m2=new Mobile();
+		m2.id=102;
+
+		// here m2.name and m1.name are same as name is a static keyword
+	}
+}
+
+->in JVM there is separate section for all the static keywords.
+->there is a static block which can be declared in the class 
+->the static block is executed when the class is loaded.
+->only once the static block is executed.
+->but a constructor is executed every time when a object is created.
+->there is a class loader in the JVM which loads the class.
+->the class is loaded once when an object is created for the first time else the class is not loaded.
+-> a static bloack is  used to initialize static variables.
+-> to load a class by not creating an object we can use the forName method in class Class.
+syntax:
+class Mobile{
+	static{
+		sop('inside a static block') // static block
+	}
+} 
+class Demo{
+	psvm (String args[]){
+		Class.forName("Mobile")  // to load a class used the class loader in JVM
+	}
+}
+
+STATIC METHODS ------------------------
+->static method are also can be called by directly class Name (classname.method())
+-> non static keyword cannot be used in a static method.
+-> but to use instance variable we have to pass the object as a parameter in a static method.
+
+syntax:
+public static method(className object_name){
+	sop(object_name.id + "  "+object_name.rollno)  // way to use instance variable in a static method
+}
+
+
+ENCAPSULATION METHODS ------------------------
+
+->process of binding methods and variable inside a class for privacy.
+->private keyword is used to encapsulate data like variable and methods so that that data is accessed inside the class only.
+->so to access the private variable we have to use methods of that class only.
+
+EX:   // encapsulation demo
+class Human{
+	private int age;
+	private String name;  //private variable
+	
+	public void set_name(String n){
+		name= n;
+	}
+	public void set_age(int a){
+		age=a;
+	}
+
+	//methods to access private variables
+
+	public int getage(){
+		return age;       
+	}
+	public String getname(){
+		return name;
+	}
+}
+class Demo{
+	psvm{
+		Human h1=new Human();
+		h1.set_name("rizwan");
+		h1.set_age(20)
+		sop(h1.getname +" "+ h1.getage);
+	}
+}
+
+-> to set the instance variable for an object instead of creating multiple local variable like a,age,n,name we can use 'this' keyword.
+-> the set the instance variable for the currect object we use 'this' keyword.
+code:
+class Person{
+	private String name;
+
+	public void setname(String name){
+		this.name=name;  //this.name is reference to the name of the current object from which the method is being called.
+	}
+	psvm{
+		Person p1=new Person();
+		p1.setname("rizwan");
+	}
+}
+
+CONSTRUCTOR -------------------------
+
+->defined a method with same name as the class name.
+-> constructor cannot have a return type nor void,int,string any thing.
+->constructor overloading is also possible like method overloading
+->only using parammeters we can overload a constructor
+-> default constructor is always called when we create an object of that class
+Constructor  syntax:
+class Human{ //declaring a class
+	public Human{
+		sop('this is a default constructor') //default constructor
+	}
+	public Human(int a,String s){
+		this.age = a;
+		this.name = s;
+	}    // parameterized constructor.
+}
+
+THIS() vs SUPER() METHODS -----------------
+->every class is java extends Object class.
+like EX:
+class A extends Object{  // we dont write this but every super class extends Object class.
+	    
+}
+
+-> at the time of inheritence 
+->if B class extends A then if we create an object of b class then automatically the default constructor of the super class A is called .
+->along with the default constructor of sub class default constructor of the super class A is also called.
+-> this is  because in the constructor the first line which is executed is the super() method which is present even if not typed.
+->if you want to call the parameterized constructor of the super class we write 'super(parameters)'.
+->else it will call the default super class constructor.
+->if we want to call the default and parameterized constructor of the same class we write this() method inside a parameterized constructor method.
+
+EX code:
+class A{
+
+	public A(){
+		sop("in A");
+	}
+	public A(int a){
+		this()  // if we want to call the parameterized constructor and default constructor of the super class 
+		sop('int in A');
+	}
+}
+class B extends A{
+	public B(){
+	sop('in b');
+	}
+	public B(int b){
+		super(b) // if we want to call the parameterized constructor of Super class instead of the default constructor.
+		sop('int in b');
+	}
+}
+class Demo{
+	psvm{
+		B b1=new B();  // calls the default constructor of B along with default constructor of A
+		B b2=new B(4);  //calls parameterized constructor of B along with default constructor of A
+	}
+}
+
+
+important notes --------------------
+->java prefers camel casing.
+->classes and intefaces should always start with a capital letter and all small letters after(EX:Calc,Runnable)
+->variable and methods should be always small letters (all letters) (EX:name,show()).
+->constants should be all capital letters (EX: PIE, BRAND)
+->if a variable or method has two or more words then the first letter from the second word should be capital 
+(EX: showMarks(), showGrade()) // this camel casing
+-> if a class has two words then the first letter of every word should be capital 
+(EX: ShowData,StudentFlow)
+
+
+Object Creation -----------------
+ ->we can just crete an anonymous class like this 
+ new A() // this is an anonymous class and it creates an object but it can only be used once like
+ new A().show()  // usage is only once.
+
+INHERITANCE -------------
+-> the process of extending or inheriting the features and methods and variable of other class.
+-> for code reusability and feature reusability of a class we use inheritence.
+->all the features of the class are transered to other class by inheritance.
+
+syntax:
+class A{  // parent class | super class | base class 
+
+}
+class B extends A{ //  child class | sub class | derived class
+
+}
+->double d=Math.pow(int n1,int n2)  // takes integers as parameter and returns double value from Math class.
+
+->Types of inheritance
+1.single level.(class 1 -> class 2)
+2.multi level.   // (class 1-> class 2-> class 3)
+3.hybrid
+4.multiple inheritance in not possible in java through classes its possible using classes and interfaces
+->multiple inheritance is not  possible in java to avoid ambiguity and confusion if a method of same name is present in both the classes
+METHOD OVERRIDING ------
+-> in this case the if if both the child class and parent class have same method name but different definition then the method in the child class overrides the method in the parent class.
+->this is called method overiding.
+CODE:
+class A{
+	public void show(){
+		sop("in class A");
+	}
+} 
+class B extends A{
+	public void show(){
+		sop('in class B')
+	}
+}
+class Demo{
+	psvm{
+		B b1=new B();
+		bb1.show(); //method in the child class is called and it overrides the method in the parent class.
+	}
+}
+
+PACKAGES ------------
+->System.out.println is present in java.lang package.
+->by default the java.lang.* is already imported in the java file.
+->by using the * for import we can only the file inside the folder but not the files inside the some other folder in the folder.
+EX:import java.lang.*
+->by this line of code we can use the files inside the lang folder but files inside other folder in lang are  not accesiible 
+for that we have to use 
+code : import java.lang.folder.*
+
+syntax for  packages:
+package pack1;
+class A{
+
+}
+-> the class should be present in the pack1 folder.
+
+
+ACCESS MODIFIERS --------------------
+ 1.public
+ 2.private
+ 3.protected
+ 4.default
+
+ ->if you want to use a method or variable outside the package the always use 'public'
+ ->private methods and variables can only be use inside the same class.
+ ->protected method and variable can be accessed outside the package but inside the sub class of the parent class in which the method or variables are present.
+ ->to access the methods which are protected we have to inherit the class if we want to use it otside the package.
+
+POLYMORPHISM --------------------
+types:
+1.compile time
+2.run time
+
+compile-time: -------
+-> we know what will happen at the time of compilation then it is called compile time polymorpism
+->in this we know which will execute.
+->METHOD OVERLOADING show compile time polymorphism.
+runtime: -------
+-> we dont know what will happen at the time of compilation we know it at the time of runtime.
+->in the the machine or JVM will decide which method is going to run at the time of run time .
+->METHOD OVERRIDING show run time polymorphism.
+
+DYNAMIC METHOD DISPATCH ---------
+ -> In this first we declare object of parent class and then we just point the reference variable to the child class.
+ -> here the reference variable is same but we are pointing the reference to the objects of the child classes .
+ ->with this we can perform method overriding using the same reference variable for different child classes
+
+ EX:code.
+ class A{
+	public void show(){
+		sop('in A')
+	}
+ }
+ class B extends A{
+	public void show(){
+		sop('in B')
+	}
+ }
+ class C extends A{
+	public void show(){
+		sop('in C')
+	}
+ }
+ class Demo {
+	psvm{
+		A obj = new A();  //obj reference for class A
+		obj.show(); // outputs 'in A'
+
+		obj =new B();  // same obj reference for class B
+		obj.show();  // outputs 'in B'
+
+		obj = new C(); // same obj reference for class C
+		obj.show(); //outputs 'in C'
+	}
+ }
+ // this only happens if the  child classes inherit the same parent class then only the single parent class object reference variable can be used to reference other child classee also.
+
+ FINAL KEYWORD -------------
+ ->used for a varible if we are not goinng to change the value of the variable
+ ->example declaring constants whose value should not be changed.
+
+ ->final class is used when if you dont want other class to inherit the final class.
+ ->final class cannot be inherited.
+
+ ->final methods cannot be overrided 
+ ->we cannot define the same final method in the subclass to override method in the parent class.
+
+ OBJECT CLASS --------------
+ ->Object class have come method which  can be overrided in the parent class as every parent class extends or inherits the Object class.
+ --Some Method is Object class-----
+ .equals()
+ .hashCode()
+ .getClass()
+ .toString();
+
+ ->by default if we print the entire object like ( sop(obj); ) it call toString method in the Object class.
+
+UPCASTING AND DOWNCASTING ---------------
+
+-> consider class B is inheriting class a
+-> we can create a reference of class B of type class A //UPCASTING
+Ex: A obj = new B();  // but we cannot access the methods of class B using obj so to tackle that we downcast the reference objects.
+code: //DOWNCASTING 
+B obj1 = (B) obj;  // so now the obj is downcasted to child class B.
+ WRAPPER CLASSES --------------
+ ->wrapper classes are the classes which are object form of the primitive data types;
+ ->Integer class has a number value in it and is onject type.
+ ->examples of wrapper class are
+ 1.Integer
+ 2.Characters
+ 3.Double etc.
+Code:
+Integer num = new Integer(1) //boxing (Deprecated means not a prefered way ) primiive type to object type
+Integer num1 = 1 // autoboxing 
+-> num1 has a number value but is object type.
+->to get the num value simple we write 
+code : 
+int num2 = num1.intValue(); //unboxing object type to primitive type
+int num2 = num1 //auto unboxing (directly converting object type to primitive type)
+Integer.parseInt(string str) // used when a number value is stored in a string format.
+
+ABSTRACT --------
+-> abstract keyword is used for a method which is not defined but declared in a class.
+-> absract methods are not defined but they are just declared.
+->abstract methods can only be present in an abstract class.
+->abstract class can also have abstract methods as well as normal methods .
+->the class which is inheriting an abstract class must compulsary define the parent class abstract methods.
+->we cannot create objects of a abstract class becaause an abstract class can contain abstract method which are not defined.
+code:
+abstract class Car{ //abstract class
+	public abstract void drive(); // abstarct method declaration.
+
+	public void fly(){
+		sop('flying..') //normal method.                     
+	}
+}
+class Ford extends Car{   // class Ford inheriting the abstract class Car so it has to implemet or define the abstract method of the parent class.
+	public void drive(){
+		SOP('driving...')  //implementation of defination of the abstract method of the parent class.
+	}
+}
+-> the class which is inheriting the abstract class and defineing the parent class abstract methods is class 'CONCERTE CLASS'.
+-> now we can create the object of the class Ford.
+->object of Class Car cannot be created as it is the abstract class.
+->in case a child class cannot define the abstract method of the parent class the the child class should also be an abstract class and other child class chould inherit it and define the abstarct methods.
+
+INNER CLASS --------------
+-> class inside a class is called an inner class.
+code:
+class A{
+	int a = 10;
+	class B{  // inner class can be defined static class B {}
+		int b=20;
+	}
+}
+class Demo{
+	A obja = new A(); //  object of A class.
+	A.B objb = obja.new B();   // syntax for crateing an object of the inner class.
+
+}
+
+-> to creat an object of an inner class we should use the object of the outer class .
+->and we have to use      (  Outer_class.Inner_class = object_of_outer_class.new Inner_class(); )
+
+->we can make only inner classes static anf if  the inner class is static the the inner class object should be created as 
+code:  A.B objinner = new A.B();  // if inner class is static.
+
+ANONYMOUS INNER CLASS -------------------
+-> if we want to overide the functionality of a class the we define the anonymous class while creating the object of the class.
+->with this we can write our own logic to overide the functionality of a class.
+syntax:
+class A{
+	public void show(){
+		sop('in A class');
+	}
+}
+class Demo{
+	A obj = new A(){    // anonymous class creation.
+		public void show(){
+			sop('in anonymous class');   // overiding the functionality of the class A.
+		}
+	}
+}
+
+-> we know that we cannot create objects of the abstract class because abstract class containes abstract method.
+->but we can creat an anonymous inner class for the abstract class and define the abstract method in the anonymous inner class.
+Implementation:
+abstract class A{
+	public abstract void show();
+}
+class Demo{
+	A obj = new A(){
+		public void show(){
+			sop('in anonymous inner class') // define an abstratc method in an anonymous inner class.
+		}
+	}
+}
+
+INTERFACES -----------
+-> in interfaces we declare mmethods like abstract methods.
+->but we dent write (public abstract) because by default the methods in the interface are public and abstract.
+code :
+interface A{   //interface creation
+	void methodName();
+}
+class B implements A{   /implementing  an interface.
+ 
+}
+-> if we are implementing (inheriting) an interface then we have to complusory define the method in the interface or keep the class abstract.
+->we can create only final and static variable in an interface.
+->the varibles should be predefined.
+-> a class can implement multiple intefaces.
+code:
+interface A{
+	void methodName1();
+}
+interface B{
+	void methodName2();
+}
+class C implements A,B{
+	       // we shhould define method in both the interfaces or keep the class abstract.
+}
+-> an interface can inherit other interface using extends.
+
+ENUMS ----------
+->enums are like class in which we can declare constants.
+->enums hold constants and we can use them anywhere.
+code:
+enum enumName{
+	name1,name2,name3,name4;   //enum creation.
+}
+class Demo {
+	psvm{
+		enumName e1 = enumName.name1;
+		// we can use switch case of conditonals using enum.
+	}
+}
+->enum by default extends Enum class.
+-> method in enum. EX:
+enumName.values() ->return an array of constants in declared enum.
+e1.ordinal() ->gets the index of the constants index in the enum.
+->in enum we can also declare constructors and method and integers which are private only.
+-> and we can also declare paramerterized constructors and also pass those in the objects in th enums.
+code:
+enum enum_name{
+	obj1(20),obj2(40);  //parameters passed in the obbjects of the enum.
+	// we can also declare non parameterized objects only if a non parameterized constructor is present in the enum.
+}
+
+enum Laptop{
+    asus(200),lenovo(250),mac(400),dell(300),hp();
+    private Laptop(){
+        System.out.println(this.name());
+        System.out.println("in a constructor with no parameter.");
+    }
+    private int price;
+    private Laptop(int price){
+        System.out.println(this.name());
+        System.out.println("in a constructor with parameter");
+        this.price = price;
+    }
+    public int getPrice() {
+        return price;
+    }
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    
+}
+EXAMPLE CODE ENUM:  --------------
+public class Demo{
+    public static void main(String[] args) {
+        
+        for(Laptop l :Laptop.values()){
+            System.out.println(l + " old price is  "+l.getPrice()+"$");
+            switch(l){
+                case asus:
+                    l.setPrice(l.getPrice()+50);
+                    break;
+                case mac:
+                    l.setPrice(l.getPrice()+200);
+                    break;
+                case dell:
+                    l.setPrice(l.getPrice()+80);
+                case hp:
+                    l.setPrice(l.getPrice()+100);
+                    break;
+                case lenovo:
+                    l.setPrice(l.getPrice()+60);
+                    break;
+                default :
+                    l.setPrice(l.getPrice());
+            }
+            System.out.println(l + " new price is "+l.getPrice()+"$");
+            System.out.println("--------------------------------");
+        }
+    }
+}
+output:
+asus
+in a constructor with parameter
+lenovo
+in a constructor with parameter
+mac
+in a constructor with parameter
+dell
+in a constructor with parameter
+hp
+in a constructor with no parameter.
+asus old price is  200$
+asus new price is 250$
+--------------------------------
+lenovo old price is  250$
+lenovo new price is 310$
+--------------------------------
+mac old price is  400$
+mac new price is 600$
+--------------------------------
+dell old price is  300$
+dell new price is 480$
+--------------------------------
+hp old price is  0$
+hp new price is 100$
+--------------------------------
+
+ANNOTATION :------------------
+->annotations are like metadata which provide extra information to the machine or compiler about the code.
+->annotation helps in debugging.
+->annotation helps us finding the bug at the time of writing the code.
+->EX: @overide is an annotation which is helpful for method overiding and shows the bug if overiding is not implemented.
+
+TYPES OF INTERFACES :
+1.normal interfaces  ->has multiple method like normal interfaces
+2.functional or SAM interfaces. SAM-> Single Abstract Methods. -> has only single abstract method in it.
+3.marker interfaces. has no methods in it.
+->we can use an annotation make compiler know about the functional interfaces using @FunctionalInterfaces.
+
+LAMBDA EXPRESSIONS:
+-> they are used to implement funvtional interfaces in a clean and short code.
+->there is no need of an anonymous class or other class to implement  methods in functional interfaces.
+EXAMPLE CODE:
+@FunctionalInterface
+interface A{
+    void add(int a,int b);
+}
+class Demo{
+     public static void main(String[] args) {
+        A obj = (i,j) -> System.out.println("the addition of the two numbers is " + (i+j) );
+        obj.add(4,6);
+     }
+}
+
+ERROR AND EXCEPTIONS: ----------------
+errors:
+-> 2 types
+1.compile time error
+2.run time error.
+3.logical error
+COMPILE TIME ERROR : it is defined as the error which are shown at the compile time itself and which dont need time to handle and debug.
+->these errors can be easily identified by just compiling the code.
+LOGICAL ERROR : these are the errors which arise due do some logical problem.
+-> these are not basically errors but due to the wrong logic we have written the output will be different from the expected out .
+RUNTIME ERROR: run time errors are known as  exceptions.
+->these are the error which are not identified at compilation but at the time of runnig these are identified.
+->due to runtime error the program execution will be stopped.
+->so to avoid the stopping of the programs if a runtime error arises then we hav to handle the  exception (run time errors.)
+
+ERRORS ARE OF TYPES:
+1.threaddeath error.
+2.out of memory error.
+3.VM error.(Virtual Machine).
+4.IO error. ETC
+->errors cannot be handled and surely the program execution will be stopped.
+
+EXCEPTION:
+1.Checked Exceptios.
+2.Un-Checked Exception.
+CHECKED EXCEPTION ----
+-> these are the exceptions that are compulsary should be handled.
+->the machine notifies you to handle the exception.
+EX:  SQL EXCEPTION , IO EXCEPTION.
+UN-CHECKED EXCEPTION  ----
+->these are the exception which you should or should not handle
+->its your choice to handle the exception.
+->the machine dont notifies you to handle the exception.
+EX:ARITHEMATIC EXCEPTION , ARRAYINDEX OUT OF BOUND , NULL POINTER EXCEPTION.
+->Throwable is the parent class of Error and Exception classes.
+->Object is the parent class for Throwabel class and all other classes by default.
+ THROW AND THROWS keyword --------
+ ->throw keyword is used to define user-defined exceptions like throw user_exception
+ -> to create a used defined exception we have to create a class for the exception and constructor in the class.
+-> throws keyword is used to pass the exception to the upper hierarcy.
+->example if a method has an exception then instead of handeling the  exception we can simply pass throws ExceptionName and now we have to implement the try catch block for the part in which we are calling the method which throws the exception.
+->further we can skip the handling the exception and pass it to further 
+-> this phenomenon of skiping the exception handling is known as Ducking Exceptions
+ USER DEFINED EXCEPTION ----------
+->throw implementation
+ class UserException extends Exception{
+    public UserException(String s){
+        super(s);
+    }
+}
+class Demo{
+    public static void main(String[] args) {
+        int i=0;
+        try{
+
+            if(i==0){
+                throw new UserException("the selected number is zero");
+            }
+        }catch(Exception e){
+            System.out.println("exception "+ e);
+        }
+    }
+}
+->throws implementation
+
+INPUT FROM USERS:
+-> input can be taken from different ways:
+->by using System.in.read();
+Implementation code
+
+import java.io.IOException;
+public class Demo{
+    public static void main(String[] args) throws IOException {
+        System.out.println("enter a number");
+        int i = System.in.read();
+        System.out.println(i-48);
+
+    }
+} 
+-> and also by using BufferedReader class.
+Implementation code:
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+public class Demo{
+    public static void main(String[] args) throws IOException {
+        System.out.println("enter a number");
+        InputStreamReader in = new InputStreamReader(System.in);
+        BufferedReader bf = new BufferedReader(in);
+        int s =Integer.parseInt(bf.readLine());
+        System.out.println(s);
+		bf.close();
+    }
+}
+->we have to also close the bufferedreader object using obj.close() method.
+->BufferedReader takes the argument of InputStreamReader and InputStreamReader takes the object of InputStream ie System.in
+->and last effective and widely used way of taking user input is through Scanner class.
+Implementation code:
+import java.util.Scanner;
+public class Demo{
+    public static void main(String[] args) throws IOException {
+        System.out.println("enter a number");
+        Scanner sc = new Scanner(System.in);
+    
+        int num = sc.nextInt();
+        System.out.println(num);
+
+    }
+}
+FINALLY BLOCK -----
+->the code in this finally block run either exception occures and not occurred.
+->catch block can be skipped if there is a finally block after the try block.
+
+TRY WITH RESOURSES -------
+->we can access the resourses in the try block itself resourses like opening the buffer reader and opening the file etc.
+->with this method automatically the resourses get closed .
+implementation code :
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+public class Demo
+{
+    public static void main(String[] args) throws NumberFormatException, IOException 
+    {
+        
+        int i=0;
+        try( BufferedReader bf = new BufferedReader(new InputStreamReader(System.in))){
+       
+       
+         i = Integer.parseInt(bf.readLine());
+        System.out.println(i);
+        }
+        
+    }
+} // no need of finally block to close the resourses.
+
+THREADS ----------
+->threads are the smallest unit of a process or program which is running.
+->threads enable multitasking.
+->multiple threads can be run at the same time.
+->Threads is a class which implements Runnable interface .
+->one technique to implement threads is extending thread class.
+and using.start() method
+
+Implementation code :
+class A extends Thread{
+    public void run() {
+        for(int i =0;i<=5;i++){
+            System.out.println("thread in a is running");
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+               
+            }
+        }
+    }
+}
+class B extends Thread{
+    public void run(){
+        for(int i =0;i<=5;i++)
+        {
+            System.out.println("thread in b is running");
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+               
+            }
+        }
+    }
+}
+public class Demo{
+    public static void main(String[] args) {
+        A obj1 = new A();
+        B obj2 = new B();
+        obj1.start();
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+           
+            e.printStackTrace();
+        }
+        obj2.start();
+    }
+}
+
+->other technique is to use Runnable interface and creating an object of threads and passing the objects of runnable interface in the thread object.
+Implementation code of Runnable interface:
+class Demo{
+    public static void main(String[] args) {
+        Runnable r1 = () ->{
+            System.out.println("in runnnable interface 1");  //using lambda function
+        };
+        Runnable r2 = ()->{
+            System.out.println("in runnnable interface 2");  //runnable interface is a SAM interface or Functional interface.
+        };
+
+        Thread t1 = new Thread(r1);
+        Thread t2 = new Thread(r2);
+        t1.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            
+            e.printStackTrace();
+        }
+        t2.start();
+    }
+}
+
+->thread.join() method is used to join the thread with the main thread means the main thread will not complete until the thread complete the process.
+->but syncronized os used to make the function or variable thread safe which means the at a time only one thread can access the function or variable.
+implementation code:
+class A{
+    int count;
+    public synchronized void increment(){
+        count++;
+    }
+}
+public class Demo{
+    public static void main(String[] args) throws InterruptedException {
+        A c = new A();
+        Runnable r1 = ()->{
+            for(int i =0;i<10000;i++)
+                c.increment();
+        };
+        Runnable r2=()->{
+            for(int i =0;i<10000;i++)
+                c.increment();
+        };
+        Thread t1 = new Thread(r1);
+        Thread t2 = new Thread(r2);
+
+        t1.start();
+        t2.start();
+
+        t1.join();
+        t2.join();
+        System.out.println(c.count);
+    }
+}
+
+THREAD STATES: ---------------
+1.New.
+2.Runnable
+3.Running.
+4.Waiting.
+5.Dead
+
+->we can use the method t1.wait() or t1.sleep to move a thread from from running state to waiting state.
+->again to move a thread from waiting state to runnable state we use notify() method
+->run() method move thread fron runnable to running state.
+->after the thred is executed the thread is moved to dead state.
+->start() method moves a thread from new state to runnable state.
+
+Collection , collection api , collections ---------------------
+->Collection is an interface with many data structures in it.
+->in Collection interface we can use different classes which implement collection interface.
+->these class are the data structures .
+->the data structures include 
+1.ArrayList<>
+2.List<>
+3.Set we implement using the HashSet
+4.TreeSet etc.
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Demo{
+    public static void main(String[] args) {
+        Collection <Integer> nums = new ArrayList<Integer>(); // we use collection interface if we dont want to work with indexes.
+        nums.add(1);
+        nums.add(2);
+        nums.add(3);
+        nums.add(2);
+        nums.add(3);
+
+        List <Integer> l1 = new ArrayList<Integer>();
+        l1.add(1);
+        l1.add(2);
+        l1.add(6);
+        l1.add(8);
+        System.out.println(l1);
+        System.out.println(); 
+
+       Set<Integer> num1 = new TreeSet<Integer>(); 
+        num1.add(1);
+        num1.add(8);
+        num1.add(6);
+        num1.add(3);
+        System.out.println(num1);
+
+        Iterator<Integer> values= num1.iterator();
+        while(values.hasNext()){
+            System.out.println(values.next());
+        }
+    }   
+}
+
+MAP CLASS  -------
+import java.util.HashMap;
+import java.util.Map;
+
+public class Demo{
+    public static void main(String[] args) {
+        Map<String,Integer> map = new HashMap<>();
+        map.put("key1",8);
+        map.put("key2",6);
+        map.put("key3",5);
+        map.put("key4",14);
+        for(String s : map.keySet()){
+            System.out.println("Key: " + s + ", Value: " + map.get(s));
+        }
+        
+    }
+}
+-> map is used to store  key value pairs instead of indexes.
+->HashMap is not thread safe so to implement thread safe key values pairs  we use synchronized or separated datastructure HashTable.
+code:
+->here we use put because it puts the key value pair in such a way that the key is unique.
+
+Sorting in Collection ------------
+-> we use Collections class to call the sort() method.
+->sort metod can implement sort functionality and sort the list but we can customize the sort by defining compare function and creating an object of Comparator class.
+->Comparator interface is a functional interface and can be implement using lambda function.
+Code implementation:
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+class Demo{
+    public static void main(String[] args) {
+        Comparator<String> com = (s1,s2) ->{
+            if(s1.length()>s2.length()){
+                return 1;
+            }
+            else{
+                return -1;
+            }
+        };
+        
+        List <String> s1 = new ArrayList<String>();
+        s1.add("Hello");
+        s1.add("hi");
+        s1.add("bye");
+        s1.add("howareyou");
+        s1.add("rizwan");
+
+        Collections.sort(s1,com);
+        System.out.println(s1);
+    
+    }
+}
+
+-> we can also create collection of class objects.
+code Implementation:
+import java.util.List;
+import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.Collections;
+class Student{
+    String name ;
+    int rollno;
+    public Student(String name, int rollno) {
+        this.name = name;
+        this.rollno = rollno;
+    }
+    public String toString(){
+        return ("name :" +name+" Roll No :" +rollno);
+    }
+}
+class Demo{
+    
+    public static void main(String[] args) {
+        Comparator<Student> com = new Comparator<Student>(){
+            public int compare(Student i,Student j){
+                if(i.rollno>j.rollno)
+                    return 1;
+                else
+                    return -1;
+            };
+        };
+        List <Student> s = new ArrayList<Student>();
+        s.add(new Student("rizwan",14));
+        s.add(new Student("shashank",11));
+        s.add(new Student("vamshi",47));
+        s.add(new Student("sadiq",15));
+        Collections.sort(s,com);
+        for(Student student : s){
+            System.out.println(student.name +"  " + student.rollno);
+        }
+        }
+}
+-> we can also sort class objects using sort() function.
+->but we have to compulsary pass Comparator object in the sort method as we are now implementing the Comparable interface.
+code Implementation:
+import java.util.List;
+import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.Collections;
+class Student implements Comparable<Student>{
+
+    public int compareTo(Student that){
+        if(this.rollno>that.rollno){
+            return 1;
+        }
+        else
+            return -1;
+        }
+        String name ;
+        int rollno;
+        public Student(String name, int rollno) {
+            this.name = name;
+            this.rollno = rollno;
+        }
+        public String toString(){
+            return ("name :" +name+" Roll No :" +rollno);
+        }
+    }
+
+class Demo{
+    
+    public static void main(String[] args) {
+       
+        List <Student> s = new ArrayList<Student>();
+        s.add(new Student("rizwan",14));
+        s.add(new Student("shashank",11));
+        s.add(new Student("vamshi",47));
+        s.add(new Student("sadiq",15));
+        Collections.sort(s);
+        for(Student student : s){
+            System.out.println(student.name +"  " + student.rollno);
+        }
+        }
+}
+
+STREAM API -----------
+->Object og stream can only be use once.
+->Stream object allow us to perform different methid onn collections.
+->method like map reduce and filter.
+->filter uses a predicate object used for filtering.
+->map uses an object of the function class.
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+
+public class Demo{
+    public static void main(String[] args) {
+        List<Integer> l = new ArrayList<Integer>();
+        l.add(19);
+        l.add(16);
+        l.add(14);
+        l.add(17);
+        l.add(11);
+        l.add(12);
+        Predicate pre = new Predicate<Integer>() {
+            public boolean test(Integer i){
+                return i%2==0;
+            }
+        };
+       Function<Integer,Integer> fun = new Function<Integer,Integer>(){
+        public Integer apply(Integer n){
+            return n*2;
+        }
+       };
+        Stream <Integer> s1 = l.stream();
+        Stream<Integer> s2 = s1.sorted();
+        Stream <Integer> s3 = s2.filter(pre);
+       
+        Stream<Integer> s4 = s3.map(fun);
+        s4.forEach(n->System.out.println(n));
+    }
+}
+ 
+code Implementation:
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+class Demo{
+    public static void main(String[] args) {
+        List<Integer> l = new ArrayList<Integer>();
+        List<Integer> l1 = Arrays.asList(1,2,3,4,5);
+        int result = l1.stream()
+        .reduce(1, (i,j)->i*j);
+        System.out.println(result);
+    }
+}
+
+code Implementation Sorted():
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
+class Demo{
+    public static void main(String[] args) {
+        
+        List<Integer> l1 = Arrays.asList(5,3,6,7,2,9,1);
+        Stream<Integer> result = l1.stream()
+        .sorted();
+        result.forEach(n->System.out.println(n));
+    }
+}
+VAR keyword -------
+->var is used to dynamically declare a variable without using the datatype
+->it can only be possible to local variables not instance variables.
+code Implementation.
+class Demo{
+    public static void main(String[] args) {
+        
+        List<Integer> l1 = Arrays.asList(5,3,6,7,2,9,1);
+        Stream<Integer> result = l1.stream()
+        .sorted();
+        result.forEach(n->System.out.println(n));
+    }
+}
+
+
+Sealed Class:----------
+->sealed classes are used to restrict the inheritance of a class to a certain classes.
+->using sealed classes we can decide to which classes we can give permission to inherit the sealed class.
+->the class who has permission to inherit a sealed class has to be final,sealed or non-sealed class.
+->we can grant permission to inherit a sealed class using permits keyword.
+->interfaces can also be sealed and non sealed but not final.
+Code Implementation:
+sealed class A permits B,C{
+
+}
+non-sealed class B extends A {
+
+}
+non-sealed class C extends A {
+
+}
+ class Demo extends B{
+    
+}
+sealed interface X{
+
+}
+sealed interface Y extends X permits D{
+
+}
+final class D implements Y{
+
+}  
+
+RECORD -------------
+-> a record is used to share only data.
+-> a record class can store  only private final variables.
+-> a record data in immutable.
+Code Implementation.
+record Data(int id,String name){
+    void show(){
+        System.out.println(id);
+    }
+
+    // we cannot create instance varible in the record 
+    // we can only create static varibles in the record
+    // a record class can implement an interface
+    //a record class cannot extend other class.
+
+    // we can create normal method and static methods and also static varibles but not instance variables.
+
+    public Data(int id , String name){
+            this.id=id;
+            this.name=name;
+    }
+    public Data(){
+        this(0,"");
+    }
+}
+
+class Demo{
+    public static void main(String[] args) {
+        
+        Data d1 = new Data(1,"Rizwan");
+        Data d2= new Data(2,"Mohammad");
+        Data d3 = new Data(3,"Nawaz");
+        Data d4 = new Data(4,"Mohd");
+        Data d5= new Data(1,"Rizwan");
+        Data d6 = new Data();
+        d1.show();
+        
+        System.out.println(d4.name());
+
+    }
+    
+}
+
+
+JUNIT and UNIT TESTING -----------
+->this is a testing technique which is done by software developers itself.
+->in this the testing is done in units.
+->units are nothing but method or part of which we categorize as units.
+->a unit can contain one method or more than one method .
+->so we can decide what should be include in a particular unit.
+->and now that we have decide the unit we can test the particular unit.
+->for a particular unit we perform tests.
+->this this process we provide test code for each unit .
+-> in the test code we do assertion which is to compare the actual correct result and the method generated result.
+
+-> A popular unit testing framework is JUNIT 5.
+
+->Unit Testing methodolgy.
+1.set up environment.
+2.provide testing input.
+3.run the test.
+4.provide expected output.
+5.perform assertion.
+6.report test results to the developer.
+
+->but these steps can differ from the type of units we are working with.
+->each type of unit can have different methodolgy or approach for unit testing.
+-> junit 5 is not the upgraded version of junit 4.
+-> its a completely different software framework which is not developed on top of junit4
+->so there is no backward compatability in junit 5
+->we cannot run the test prepared using junit4 in junit 5.
+->So to run the tests prepared in junit 4 on junit 5 we have an api called vintagge api.
+
+@Test annotation is used to above a test method to  identify that method as test method.
+->package - org.junit.jupiter.api
+->visibity of @Test Annotated method can be public,protected,default.
+->the test method check for the failure not for the success.
+->if the method is not failing the by default the ide considers it as success.
+
+->Assertion methods are static methods.
+-> assetio class methods examples.EX:assertEquals()  , assertArrayEquals()
+->Assertion methods are present in the class org.junit.jupiter.Assertion 
+-> in assert methods we an also pass the third parameter which is the message we want to display when the test is failed.
+->every time the IDE i.e eclipse makes it easier to run a test code .
+->but to run the test case as a whole  without taking the help IDE then we have to run the test case file as maven test.
+->to run a maven test we have to add a plugin class sure-fire in pom.xml file.
+->after the adding of sure-fire plugin then we can run maven test as testrunner.
+->this maven run will be in the terminal.
+->assertNotEquals() method will do the exact opposite of the assertEquals() method.
+-> we can write the methods also like this 
+assertEquals(actual,methodvalue,()->"message to be displayed");
+-> if we use the above syntax then the message will not be evaluated when the case is passed.this decreases the computation.
+-> if we use the normal syntax then compulsory the message will be evaluated.
+methods:
+assertTrue(condition);
+->passes the test if the condition is true else fails the test case
+assertFalse(condition)
+->fails the test case if the condtion is true and passes the test case if the condition is fails.
+->assertThrows(Exceptionname.class,()->dosomething which throws exception)
+-> this method passes the test if exception is generated and fails the test if no exception is generated.
+
+PERFORMANCE TESTION INN JUNIT ----------
+-> performance of a testcase is the duration of time the unit is taking to perform an operation.
+->we use the method:
+assertTimeout(Duration.ofmillis(timeduration boundary in millis),()->method which we are going to check the performance)
+->in the method we can define the time duration in minutes and in seconds or in hours also.
+
+-> this method is only possible in junit-5 to check the performance in junit-4 we have to define the time in milli seconds in the annotation of the test
+code:
+@Test (Timeout=100)
+public void test(){
+    ---
+    ---
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

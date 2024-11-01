@@ -1,0 +1,76 @@
+-> INTRO TO SOFTWARE DEVELOPMENT
+1.the process of creating,designing,implementing and maintaining software applications and systems.
+KEY TASKS OF A SOFTWARE DEVELOPER:
+1.understanding the requirements to solve the problem and goal you want to acheive
+->DESIGNING SOLUTIONS :
+1.functional requirements (specific features your software should have)
+2.non functional requirements (defines how your software should be and how it should perform) EX:responsiveness and data security
+3.technical requirements (technology and sensors and hardware used for developing the software)
+->SOFTWARE ARCHITECTURE
+->PROBLEM ANALYSIS
+->COMPONENT INTERACTIONS
+->CODING
+->TESTING AND DEBUGGING
+->COLLABORATION AND COMMUNICATION
+->CONTINOUS LEARNING
+->VERSION CONTROL AND MAINTAINENCE
+->DOCUMENTATION
+
+Key tasks of a frontend developer:
+1.Building user interfaces
+2.Cross-browser compatibility
+3.Responsive design
+4.Optimization
+5.Collaboration
+
+Key tasks of a backend developer
+1.Server-side programming (write code that runs on serser and handle all the processing requests database accessing etc)
+2.Database management (maintaining well organized database and performance optimization )
+3.API development
+4.Security:
+Security is paramount in backend development. You'll need to implement measures to protect against common security threats like SQL injection, Cross-Site Scripting (XSS), and data breaches. Security-related tasks can include authenticating users, encrypting data, and performing penetration tests. These tasks are like typical home security measures you might be familiar with, like locking doors, screening visitors before allowing entry, and using security cameras to detect intruders.
+5.Scalability:
+As web applications grow in popularity and usage, they must handle increased traffic and load. Backend developers are responsible for designing scalable architectures to accommodate growth without sacrificing performance. It's similar to adding more lanes to a highway: as traffic increases, more lanes are added to ensure smooth and efficient travel without congestion or delays.
+
+
+Key tasks of a fullstack developer
+End-to-end development: 
+Fullstack developers are involved in every stage of the development process, from designing user interfaces to writing server-side logic to deploying and maintaining applications. It's like being a movie director who oversees the entire film production, from scriptwriting to directing actors to editing the final cut.
+Versatility: 
+Fullstack developers are proficient in both frontend and backend technologies, allowing them to switch between tasks seamlessly and adapt to the needs of the project. 
+Problem-solving: 
+Fullstack development often involves solving complex problems that require a deep understanding of both frontend and backend technologies. It's like being a Swiss army knife – equipped with the tools needed to tackle any challenge that comes your way.
+Continuous learning:
+With technology evolving rapidly, fullstack developers must stay up-to-date with the latest trends and technologies in frontend and backend development. Continuous learning is essential for staying relevant in this dynamic field.
+
+
+What key qualities do you think make a successful software developer?
+-> knowledge of programming languages, problem-solving, attention to detail, communication, adaptability, teamwork, and time management
+1.Technical skills
+2.Continuous learning and adaptability
+3.Attention to detail
+
+OTHER PROGRAMMING LANGUAGES:
+1.C,C++:
+-> have the ability to directly interact with the systems and is IDEAL for SYSTEMS PROGRAMMING
+-> more power and speed 
+->C++ is built on C and have OOP features 
+
+2.JAVA
+->write once and run anywhere
+->simplifies complex processes like multithreading and memory management
+->robust and scalable
+->server side languages
+->DB management
+->user authentication   
+
+SDLC (SOFTWARE DEVELOPMENT LIFE CYCLE):
+a structured process for designing ,developing  and testing high quality software.
+1.planning
+2.ANALYSIS
+3.design
+4.development
+5.testing
+6.deploying
+7.maintaining
+
