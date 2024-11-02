@@ -1529,6 +1529,74 @@ class TestClass{
 -> by default we use TestInstance(TestInstance.Lifecycle.PER_METHOD) ->for this for every test method an instance (Object ) is created.
 -> if the behavior is PER_CLASS no need to use static method for the @BeforAll and @AfterAll annotated method.  
 
+DATA STRUCTURES AND ALGORITHMS --------------
+
+-> data is every where .
+->primitive data type are int bool char string.
+->not primitive are arrays,objects,classes.
+
+->algorithms are designed to perform tasks.
+->effective algorithms are the ones which takes less time and space to execute.
+->now Time and space complexity comes into picture.
+->time complexity is defined as the amount of time an algoritm is taking to perform execution.
+-> not time but no of steps an algorithm is performing to execute the task.
+->space complexity is the amout of memory an algorithm is taking.
+
+Searching Techniques  ------
+1.Linear Searching
+2.Binary searching.
+
+->linear search is simple and easy to understand.
+->it has linear time complexity.
+->it has time complexity of O(n)
+
+->binary search is a two way searching process.
+->for every step we are removing half of the search space by comparing the mid element with the target element.
+->it has time complexity of O(logn)
+
+Sorting Techniques-----
+1.bubble sort
+->easy and basic
+->but not efficient
+->O(n^2) time complexity
+->in bubble sort we sort each value till the value goes to it correct position.
+
+2.Selection sort:
+->in selection sort we hover through the array and find the min and max value and transfer it to the correct position and the swapped part is the sorted array.
+->then again we hover through the unsorted array we select the min or max value then swap it to the sorted array.
+->with we are swapping in the outer loop.
+->with this the number of swaps decreases.
+
+3.Insertion sort:
+->int this we sort the array in part by declaring a key.
+->in the first pass the first two elements are sorted and in the second pass the first three elements are sorted so on.
+code Implementation of insertion sort:
+import java.util.Arrays;
+
+class Demo{
+    public static void main(String[] args) {
+        int nums[] = {5,3,2,7,4,1};
+
+        for(int i = 1;i<nums.length;i++){
+            int key = nums[i];
+            int j = i-1;
+            while(j>=0 && nums[j]>key){
+                nums[j+1] = nums[j];
+                j--;
+            }
+            nums[j+1] = key;
+        }
+        System.out.println(Arrays.toString(nums));
+    }
+}
+
+4.Quick Sort:
+->divide and conquer algorithm.
+->quick sort also uses recursion in the algorithm.
+->and we have to work on pivot to solve the problem using this algorithm.
+-> we use pivot to partition in the array.
+
+
 
 
 
