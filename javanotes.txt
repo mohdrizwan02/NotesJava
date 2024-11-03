@@ -1566,10 +1566,12 @@ Sorting Techniques-----
 ->then again we hover through the unsorted array we select the min or max value then swap it to the sorted array.
 ->with we are swapping in the outer loop.
 ->with this the number of swaps decreases.
+->Time complexity of O(n^2)
 
 3.Insertion sort:
 ->int this we sort the array in part by declaring a key.
 ->in the first pass the first two elements are sorted and in the second pass the first three elements are sorted so on.
+->Time complexity of O(n^2)
 code Implementation of insertion sort:
 import java.util.Arrays;
 
@@ -1595,6 +1597,252 @@ class Demo{
 ->quick sort also uses recursion in the algorithm.
 ->and we have to work on pivot to solve the problem using this algorithm.
 -> we use pivot to partition in the array.
+->time complexity of O(nlogn)
+code Implementation:
+import java.util.Arrays;
+
+class Demo{
+    public void swap(int nums[],int i,int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+    public int  partition(int nums[],int low,int high){
+        int i =low-1;
+        int pivot = nums[high];
+        for(int j=low ;j<high;j++){
+            if(nums[j]<pivot){
+                i++;
+                swap(nums,i,j);
+            }
+        }
+        swap(nums,i+1,high);
+        return i+1;
+    }
+    public void quickSort(int nums[],int low,int high){
+        
+        if(high>low){
+            int pivot = partition(nums,low,high);
+            quickSort(nums,low,pivot-1);
+            quickSort(nums,pivot+1,high);
+        }
+    }
+
+
+      
+
+
+    public void selectionSort(int nums[]){
+        for(int i =0;i<nums.length-1;i++){
+            int minIndex = i;
+            for(int j =i+1;j<nums.length;j++){
+                if(nums[minIndex]>nums[j]){
+                    minIndex = j;
+                }
+            }
+            swap(nums,minIndex,i);
+        }
+    }
+   public void insertionSort(int nums[]){
+        for(int i =1 ;i<nums.length;i++){
+            int key = nums[i];
+            int j =i-1;
+            while(j>=0 && nums[j]>key){
+                
+                    nums[j+1] = nums[j];
+                    j--;
+                
+
+            }
+            nums[j+1]=key;
+        }
+   }
+    public static void main(String[] args) {
+        int nums[]= {8,5,6,8,3,2,5,0,5,2,1,2,5};
+         Demo d = new Demo();
+         d.quickSort(nums,0,nums.length-1);
+         System.out.println(Arrays.toString(nums));
+         
+        
+    }
+}
+
+5.Merge Sort:
+->this is also an algorithm based on divide and conquer approach.
+-> uses two function merge and mergeSort;
+->uses recursive approach.
+code Implementation:
+import java.util.Arrays;
+
+public class Demo{
+    public void merge(int nums[],int l,int mid,int r){
+        int n1 = mid - l + 1;
+        int n2 = r-mid;
+        int larr[] = new int[n1];
+        int rarr[] = new int[n2];
+        for(int x =0 ; x<n1; x++){
+            larr[x] = nums[l+x];
+            
+        }
+        for(int x =0 ; x<n2;x++){
+            rarr[x] = nums[1+mid+x];
+        }
+        int i =0;
+        int j =0;
+        int k =l;
+
+        while(i<n1&&j<n2){
+            if(larr[i]<=rarr[j]){
+                nums[k] = larr[i];
+                i++;
+            }
+            else{
+                nums[k] = rarr[j];
+                j++;
+            }
+            k++;
+        }
+        while(i<n1){
+            nums[k] = larr[i];
+            i++;
+            k++;
+        }
+        while(j<n2){
+            nums[k] = larr[j];
+            j++;
+            k++;
+        }
+
+
+    }
+    
+    public void mergeSort(int nums[],int l,int r){
+        if(l<r){
+            int mid = (l+r)/2;
+            mergeSort(nums,l,mid);
+            mergeSort(nums,mid+1,r);
+            merge(nums,l,mid,r);
+        }
+    }
+    public static void main(String[] args) {
+        Demo d = new Demo();
+        int[] nums = {4,5,7,9,4,6,7,3,1};
+        d.mergeSort(nums,0,nums.length-1);
+        System.out.println(Arrays.toString(nums));
+    }
+}
+
+LINKED LIST:
+->a list which is linked to other list.
+->inn linked list the elements are called nodes and each node is connected to one other.
+->in Linked list nodes are connected in such a way that the first element is called node and the first node holds the address ofthe second node and the second node holds the address of the third node and likewise continues and the last node has null in the address as its the tails and not connected to other node further.
+Advantage and disadvantage of linkedlist over an array:
+->linked list is expandable.
+->linked list is slow than arrays.
+->in array we can fetch values randomly.
+->In c we use pointers but in java we have reference of objects.
+
+-> here we have to create two classes one is Node class which has int data and next Node of type Node and other is LinkedList class.
+
+code Implementation:
+
+LinkedList class:
+
+public class LinkedList {
+    Node head;
+
+    public void insert(int data){
+        Node n = new Node();
+        n.data = data;
+        n.next = null;
+
+        if(head == null){
+            head = n;
+        }
+        else{
+            Node n1 = head;
+            while(n1.next!=null){
+                n1 = n1.next;
+            }
+            n1.next = n;
+        }
+    }
+    public void show(){
+        Node n = head;
+        while(n.next!= null){
+            System.out.println(n.data);
+            n = n.next;
+        }
+        System.out.println(n.data);
+    }
+
+    public void insertAtStart(int data){
+        Node n = new Node(); 
+        n.data = data;
+        n.next = head;
+        head = n;
+    }
+
+    public void deleteAt(int index){
+        if(index ==0 || index == 1  ){
+            head = head.next;
+        }
+        else{
+            Node n = head;
+            Node n1 = null;
+            for(int i =1;i<index-1;i++){
+                n = n.next;
+            }
+            
+            n1 = n.next;
+            n.next = n1.next;
+            n1 = null;
+
+        }
+    }
+    public void insertAt(int index ,int data){
+        Node node = new Node();
+        node.data = data;
+        node.next = null;
+
+        if(index ==0){
+            insertAtStart(data);
+        }
+        else{
+
+            Node n = head;
+            for(int i =1;i<index-1;i++){
+                n = n.next;
+            }
+            node.next = n.next;
+            n.next = node;
+        }
+    }
+}
+            
+Node class:
+public class Demo{
+    public static void main(String[] args) {
+        LinkedList l1 = new LinkedList();
+       
+        l1.insert(1);
+        l1.insert(2);
+        l1.insert(3);
+        l1.insert(4);
+        l1.insert(5);
+        l1.insert(6);
+        l1.deleteAt(2);
+        l1.show();
+    }
+}
+
+    
+        
+        
+
+       
+
+
 
 
 
