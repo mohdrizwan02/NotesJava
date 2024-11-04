@@ -1836,6 +1836,227 @@ public class Demo{
     }
 }
 
+STACK -------
+->stack is a datastructure which uses LIFO principle.
+->In stack the element added last should be removed first.
+->using push method we add element in stack.
+->using pop method we remove an element from the stack.
+->top method return the element on the top of the stack means last elemen added.
+->Overflow is occured when the stack is full and we are trying to add element in the stack.
+->underflow is occured when the stack is empty and we are trying to access an element from the stack.
+->size method is used to return the size of stack.
+->isEmpty is used to check for the emptiness of the stack.
+
+TYPES OF STACKS ----------
+1.fixed size stack.
+-> in fixed sized stack the size is fixed and cannot be increased and shows stack overflow.
+code implementation:
+public class Stack {
+    int stack[] = new int[5];
+    private int top = 0;
+
+    public void push(int d) {
+        if (top < size()) {
+            stack[top] = d;
+            top++;
+
+        } else {
+            System.out.println("Stack is full");
+        }
+
+    }
+
+    public int size() {
+        return stack.length;
+    }
+
+    public int peek() {
+        if (top == 0) {
+            return -1;
+        } else {
+
+            return stack[top - 1];
+        }
+    }
+
+    public void show() {
+        for (int i : stack) {
+            System.out.print(i + " ");
+        }
+    }
+
+    public boolean isEmpty() {
+        if (top == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int pop() {
+
+        if (isEmpty()) {
+            System.out.println("the stack is empty");
+            return -1;
+        } else {
+
+            top--;
+
+            int data = stack[top];
+            stack[top] = 0;
+            return data;
+        }
+    }
+}
+
+2.dynamic size stack.
+-> in dynamic sized stack the size is dynamic and can be increased.
+code implementation:
+public class DStack {
+    int capacity =2;
+    int stack[] = new int[capacity];
+    private int top = 0;
+
+    public void push(int d) {
+        if (top >=capacity){
+            expand();
+
+        } 
+            stack[top] = d;
+            top++;
+
+        
+
+    }
+
+    public int size() {
+        return top;
+    }
+    public void expand(){
+        int length = size();
+        int newstack[] = new int[capacity*2];
+        System.arraycopy(stack,0,newstack,0,length);
+        stack = newstack;
+        capacity = capacity*2;
+    }
+
+    public int peek() {
+        if (top == 0) {
+            return -1;
+        } else {
+
+            return stack[top - 1];
+        }
+    }
+
+    public void show() {
+        for (int i : stack) {
+            System.out.print(i + " ");
+        }
+    }
+
+    public boolean isEmpty() {
+        if (top == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public void shrink(){
+       int length = size();
+       if(length<=(capacity/2)/2)
+           { capacity =capacity/2;}
+        int newstack[] = new int[capacity];
+        
+        System.arraycopy(stack, 0, newstack, 0, length);
+        stack  = newstack;
+
+    }
+
+    public int pop() {
+
+        if (isEmpty()) {
+            System.out.println("the stack is empty");
+            return -1;
+        } else {
+            
+            top--;
+
+            int data = stack[top];
+            stack[top] = 0;
+            if(top<(capacity/2)/2);
+               {
+                   shrink();
+                }
+             return data;
+         }
+     }
+ }
+
+QUEUE ----------
+-> like stack queue is also an ADT abstract data type.
+-> a queue follows FIFO principle.
+-> FIFO means first in first out.
+-> in queue we track the elements using two variables called rear and front.
+-> if an element is added then the rear will be incremented.
+-> if an element removed then front will get incremented and it goes on.
+->but when it comes to enQueue we perform moduls operation and we add elements to the queue as we increments the rear and front value Array index out of boud exception will occur.
+Code Implementation:
+public class Queue {
+    int[] queue = new int[5];
+    int front;
+    int rear;
+    int size;
+
+    public void enQueue(int data){
+        if(isFull()){
+            System.out.println("queue is full");
+        }
+        else{
+
+            queue[rear%5] = data;
+            rear = rear + 1;
+            size = size + 1;
+        }
+    }
+    public int deQueue(){
+        if(isEmpty()){
+            System.out.println("queue is empty");
+            return -1;
+        }
+        else{
+
+            int data = queue[front%5];
+            front = (front + 1)%5;
+            size = size - 1;
+            return data;
+        }
+    }
+    public int getSize(){
+        return size;
+    }
+    public void show(){
+        for(int i = 0;i<size;i++){
+            System.out.println(" " + queue[(i+front)%5]);
+        }
+    }
+    public boolean isEmpty(){
+        if(getSize() == 0){
+
+            return true;
+        }
+        else return false;
+    }
+    public boolean isFull(){
+        if(getSize() == 5){
+
+            return true;
+        }
+        else return false;
+    }
+}
+
+
     
         
         
