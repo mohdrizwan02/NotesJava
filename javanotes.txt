@@ -2154,8 +2154,84 @@ public class BinaryTree {
 }
 
 GIT ------------
+->git is a distributed version control system.
+->we use git  for collaboration and Version control.
+->we use version control to fix bug updates and add new features to the current project.
+->version control enable the feature of going back and fro to the previous versions and current versions.
+->multiple people can collaborate and work on the same project using collaboration features in the git.
+Type of Version control systems:
+1.local version control system:
+->in this we control and save the versions on our local device itself.
+-> no feature of collaboration.
+->we have only the local copy.
+2.Centralized version control system:
+->in the the project repository is stored in the centralized server and the colaboration can be possible by copying the copy from the centralized repository.
+->but the drawback is that if the cenntralized server fails then the project will be lost.
+3.Distributed Version Control System;
+->the collaborators can work on different branches of the same project.
+->collaboration is possible and we can hover back to the previous versions of the project which is saved.
+->different people(collaborators ) get to work on the same project but with different branches.
+->DVCS can be implemented by platform like:
+github,gitlab,bitbucket etc.
+->we can directly use git through the command line or powershell.
+->first step is to install the git,
+-> next we have to set the username and email for our git account.
+->we hahve to set them like this :
+git config --global user.name "username"
+git config --global user.email "useremail"
+-> git has an area known as STAGING AREA.
+->STAGING AREA is the area in which we have file which we want git to track.
+->only the files present in the staging area are tracked or pushed or commited into the git.
+->git has other section which is commit history where all the tracking of our project is done.
+GIT COMMANDS ------
+1.git config ->used to know the configuration of our git.
+2.git config --global can be used.
+3.git config --global --list -> used to fetch the username name email of the  git account. this is done to create an identity  of you through which others can identify you.
+4.git config --global user.name "name" ->used to set your name.
+5.git config --global user.email "email" -> used to set your email.
+6.git status ->helps to find the status of your current project whether git repo is initialized or not or any files to  commit or not.
+7.git init -> this command is used to by default initialize the repo in the local environment.
+ ->by default the branche initialised throug this command is master.
+8.git init -b main ->this command is used to initialize the reposotry locally in the main branch.
+-> untracked files are the files which are there in the working area but not in the staging area or in .git area.
+9.git log ->this command is used to know all the commit happend to the project. or the history.
+10.git add filename ->command is used to stage the file and later we can commit the file. 
+11.git commit -m "message of commit" ->this command is used to commit the file and now we can track the file -m " " we can also add a commit message to help others find what type of commit was done.
+-> git creates checksum for every commit which is of 40 characters and by default it shows only first seven.
+->check is like adding security 
+->git log command shows the time and date on which commit happened.
+->every time we modified a file we have to add it to the staging area using the git add "filename" command.
+->we can also direclty commit a file without moving it to the staging area. we have to add -a to the commit command.
+12.git commit -a -m "direcly commit without staging" -> commit used to directly commit without staging.
+->in git we can also know the changes we have made  in the file using diff command , with this it shows the no of lines added and the all the lines added deleted and modified.
+13.git diff ->this command is used to know what  changes i have made in the file.
+-> git diff command is only can be used when the file is in modified not staged if it is staged we cannot use diff command we have to use -staged command in that.
+14.git diff --staged -> this command is used to view the changes in the file which is staged and yet to commit.
+15.git add . -> this commanf=d is used to add all the file into the staging area instead of adding single file each.
+16.git rm --cached filename  -> this command is used to untrack the file from the git means unstage and not make file include in the commit.
+17.git branch -M main -> set the working path in the main branch.
+18.git remote add origin link_to_the_remmote_repository -> this code is used to initialise the remote repository and links our local repository to the remote one.
+19.git push origin main -> this command is used to push the code in the local repo to the remote repository.
+20.git remote -v -> this command is used to show the links to the repository named origin. and we can rename the origin name also.
+-> this is used to push our code to a paricular originn which is basically the link to our repository.
+21.git tag -> this command is used to see the no of tags for a particular repo.
+22.git tag -a "add tag"  this command is used to add a tag like we can add versions as tags.
+23.git log pretty=oneline -> this command is used to show all the commits in single line.
+24.git checkout -b branchname ->this command is used to create new branches
+25.git switch -c branchname ->this command is also used to create new branches.
+26.git branch ->this command is used to show the branches in the repo.
+27.git switch/checkout -> this command is used to switch between the branches.
+28.git switch -  ->this command is used to switch to the previous branch we are working on.
+29.git branch -d branchname -> this command is used to delete a branch.
+-> these all commands are going to do all operation in the local workspace not the remote workspace.
+30.git merge branchname -> this command is used to merge the mainn branch with the branch name we have provided.
+->to do the merge we have to be on main branch.
+31.git pull origin main -> this command is used to pull the latest main branch from the remote repo into the local workspace.
+->this practice of pulling the main branch is preferable before merging two branches.
 
-        
+JDBC (JAVA DATABASE CONNECTIVITY) ------------------
+
+
         
 
        
