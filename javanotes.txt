@@ -2056,8 +2056,105 @@ public class Queue {
     }
 }
 
+TREES ----------
+-> tree is a type of data structure which is a hierarchial data structure.
+->a tree has a single root node which is the starting of the tree.
+->and to the root node there are children nodes which are below and joined to the root node and this continues.'
+->and the last child node is called the leaf node.
+->three are two type of trees .
+1.normal trees.
+2.binary trees.
+Normal trees -------
+->normal trees are the trees which can have more than 2 child nodes and so on.
+Binary trees -----------
+->binary trees can have maximum of only 2 child nodes to a parent node.
+types of binary trees:
+1.strict binary tree:
+->in this type of binary tree a node can have exact 2 child nodes or no nodes.
+->a node cannot have 1 node either it should have exactly 2 child nodew or no child nodes.
+2.Full binary tree.
+->in this tree all the leaf node should be on the same level.
+->there should be same number of nodes ob both sides of a parent node or the root node.
+3.Commplete binart tree.
+-> in this binary tree all the leaf node should be in such a way thet the level of node is l,l-1,l-2 ....
+->the level of leaf node as we go right side should be decreasing with 1.
 
-    
+->Binary trees have two key words.
+1.height of node.
+2.depth of node.
+height:height of a node can be defined as the number of levels of nodes below a particular node including the leaf nodes.
+depth: depth can be defined as the no of levels of nodes above a particular node including the root node.
+
+Creating a binary search tree : ---
+-> in order to create a search tree the first element will be the root node.
+->an the element smaller than the root node will go on the left side of the root node.
+->element greater than root node will go on the right side.
+->if there is an element already below the root node then we compare with the element below and if small the left if large the rigth.
+->to implement a binary tree we have to make two classes:
+1.Node class
+2.BinaryTree class
+code Implementation:
+
+public class Node{
+    int data ;
+    Node left;
+    Node right;
+
+    public Node(int data){
+        this.data = data;
+        
+    }
+
+}
+
+public class BinaryTree {
+    Node root;
+
+    public void insert(int data){
+       root = insertRec(root ,data);  
+
+    }
+    public Node insertRec(Node root , int data){
+        if(root == null){
+            root = new Node(data);
+        }
+        else if(root.data > data){
+            root.left = insertRec(root.left,data);
+        }
+        else if(root.data<data){
+            root.right = insertRec(root.right,data);
+
+        }
+        return root;
+    }
+    public void inOrder(){
+        inOrderRec(root);
+    }
+    public void inOrderRec(Node root){
+        if(root != null){
+            
+            inOrderRec(root.left);
+            System.out.println(root.data+ "  ");
+            inOrderRec(root.right);
+        }
+    }
+    public void preOrder(){
+        preOrderRec(root);
+    }
+    public void preOrderRec(Node root){
+        if(root != null)
+        {
+            System.out.println(root.data+" ");
+            preOrderRec(root.left);
+            preOrderRec(root.right);
+        } 
+   }
+       
+
+}
+
+GIT ------------
+
         
         
 
