@@ -2231,6 +2231,69 @@ GIT COMMANDS ------
 
 JDBC (JAVA DATABASE CONNECTIVITY) ------------------
 
+->there are 7 steps to follow to connect your database with your application.
+1.import packages.
+2.load and register the driver.
+3.establish the connection.
+4.create the statement.
+5.execute the query.
+6.process th results.
+7.close the connection.
+
+1.we have to import the package which is "  java.sql.*  "
+2.in the process of loading the  driver we have to load the package "    com.mysql.jdbc.driver   " 
+->we have to load the driver and register using the method forName which is present in the Class class.
+->Class.forName(" com.mysql.jdbc.driver ")
+3. to establish a connection we have to instanciate an interface named "Connection".
+4.creating statement is of different types.
+->Types of statements.
+   1.normal statements
+   2.prepared statements
+   3.callable statements.
+1->nomal statements are the statemments in which we use Statement interface and con.createStatement() method which return an object of the Statement Interface.
+code implementation for normal statements:
+import java.sql.*;
+
+class Demo{
+    public static void main(String[] args) throws Exception {
+        String url ="jdbc:mysql://localhost:3306/demo";
+        String username = "root";
+        String password = "@9515269727Rizwan";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(url,username,password);
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery("SELECT * FROM table1;");
+        while(rs.next()){
+            int id = rs.getInt(1);
+            String name = rs.getString(2);
+            System.out.println("id :"+id + " \n name :" + name);
+        }
+
+    }
+}
+-> to fetch data from the database we use method executeQuery(query) and return this result in to  a ResultSet object.
+->to insert the data we use the method executeUpdate(query) and this method return an integer which is the no of rows affected.
+2.prepared statements:
+-> these statements are used when there are more line or more code to write we have to pass the question marks insted of inserting the whole string.
+->these statements are used when the inserting values are dynamic and large in number.
+code implementation of prepared statements:
+import java.sql.*;
+class Demo{
+    public static void main(String[] args) throws Exception {
+        String url = "jdbc:mysql://localhost:3306/demo";
+        String username = "root";
+        String password ="@9515269727Rizwan";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(url,username,password);
+        String query = "insert into table1 values(?,?);";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setInt(1, 6);
+        ps.setString(2,"mangali");
+        int rowsEffected = ps.executeUpdate();
+        System.out.println(rowsEffected);
+    }
+}
+
 
         
 
