@@ -2294,6 +2294,21 @@ class Demo{
     }
 }
 
+DATA ACCESS OBJECT -----------
+->data access object is the specially created class to particularly access data from the database and every time we use this class to acces data from the database.
+->we create different class and method for different operations on the database.
+
+
+SERVLET AND JSP ----------
+->servlet is used to generate dynamic web pages.
+->ex we use tomcat which act as web containers
+->servlet is a container which can take request from the client and process the request and generate the response in the form of html page.
+->request is sent by the client side to the server side.
+->when a request is sent by the client to the webcontainer in The container we have a special file called as deployment descripter (web.xml)
+->in web.xm file we have two tags which are servlet tag and other is servlet mapping tag.
+->In servlet tag we have to mention the class name and int the servlet mapping tag we have to mention the url pattern (EX /abc.html)
+->after the processin of the data is done then the server sends the response to the client and it can be in the format of html of json etc.
+ 
 
         
 
