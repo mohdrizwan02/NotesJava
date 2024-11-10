@@ -2308,6 +2308,7 @@ SERVLET AND JSP ----------
 ->in web.xm file we have two tags which are servlet tag and other is servlet mapping tag.
 ->In servlet tag we have to mention the class name and int the servlet mapping tag we have to mention the url pattern (EX /abc.html)
 ->after the processin of the data is done then the server sends the response to the client and it can be in the format of html of json etc.
+
  
 
         
